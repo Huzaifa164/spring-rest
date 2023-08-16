@@ -1,6 +1,7 @@
 package com.springrest.springrest.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.findAll();
 	}
 	@Override
-	public Course getCourses(long courseId) {
+	public Optional<Course> getCourses(long courseId) {
 //		Course c = null;
 //		for(Course course: list) {
 //			if(course.getId() == courseId) {
@@ -33,7 +34,7 @@ public class CourseServiceImpl implements CourseService {
 //				break;
 //			}
 //		}
-		return courseDao.getOne(courseId);
+		return courseDao.findById(courseId);
 	}
 	@Override
 	public Course addCourse(Course course) {

@@ -1,6 +1,7 @@
 package com.springrest.springrest.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,7 +40,7 @@ public class MyController {
 	
 	// single course
 	@GetMapping("/courses/{courseId}")
-	public Course getCourse(@PathVariable String courseId) {
+	public Optional<Course> getCourse(@PathVariable String courseId) {
 		return this.courseService.getCourses(Long.parseLong(courseId));
 	}
 	
